@@ -63,17 +63,22 @@ namespace _433Mhz_RF
         public string trDuzelt(string a) //Türkçe karakerleri, ingilizce karakterlere çevirmek için kullanıyoruz
         {
             a = a.Replace("İ", "I");
+            a = a.Replace("ı", "i");
+
             a = a.Replace("Ü", "U");
-            a = a.Replace("Ç", "C");
+            a = a.Replace("ü", "u");
+
             a = a.Replace("Ş", "S");
-            a = a.Replace("Ö", "O");
+            a = a.Replace("ş", "s");
+
+            a = a.Replace("Ç", "C");
+            a = a.Replace("ç", "c");
+
             a = a.Replace("Ğ", "G");
-            a = a.Replace("ı", "I");
-            a = a.Replace("ü", "U");
-            a = a.Replace("ş", "S");
-            a = a.Replace("ç", "C");
-            a = a.Replace("ğ", "G");
-            a = a.Replace("ö", "O");
+            a = a.Replace("ğ", "g");
+            
+            a = a.Replace("Ö", "O");
+            a = a.Replace("ö", "o");
 
             return a;
         }
@@ -114,16 +119,24 @@ namespace _433Mhz_RF
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (!serialPort1.IsOpen) 
+            {
+                MessageBox.Show("Hata: Bağlı değilsiniz!");
+                return; 
+            }
+            
             //preamble + senkronizasyon + veri
 
             byte[] SYNC = new byte[10] { 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0xAA, 0x01, 0XFE };
             serialPort1.Write(SYNC, 0, 10);
-            seri_port_data_gonder(textBox1.Text); // + (Char)13
+            seri_port_data_gonder(trDuzelt(textBox1.Text)); // + (Char)13
 
             seri_port_data_gonder("~~~~"); // garanti olsun diye bir kaç kere tilda(~) gönderiyorum birini alamazsa birini alır
 
-            textBox2.Text += textBox1.Text;
+            textBox2.Text += trDuzelt(textBox1.Text)+"\r\n";
             textBox1.Text = "";
+
+            textBox1.Focus();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -145,15 +158,22 @@ namespace _433Mhz_RF
             comboBox2.Items.Add("4800"); // BaudRate
             comboBox2.Items.Add("9600"); // BaudRate
 
-            comboBox1.SelectedIndex = 0;
+            if (comboBox1.Items.Count > 0) 
+            { 
+                comboBox1.SelectedIndex = 0; 
+            }
+            
             comboBox2.SelectedIndex = 0;
 
-            radioButton1.Select();
+            radioButton1.Checked = true;
 
             CheckForIllegalCrossThreadCalls = false;
 
             this.MaximumSize = this.Size; //formun boyutlarini engelleyelim, kendi değerinden daha büyük olamasın
             this.MinimumSize = this.Size; //formun boyutlarini engelleyelim, kendi değerinden daha küçük olamasın
+
+            textBox2.ReadOnly = true;
+
 
             //textBox1.Enabled = false;
 
@@ -273,11 +293,24 @@ namespace _433Mhz_RF
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             GorunumModeAlici("verici");
+            textBox1.ReadOnly = false;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             GorunumModeAlici("alici");
+            textBox1.ReadOnly = true;
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                
+                button2.PerformClick();
+                e.SuppressKeyPress = true; //enterin gorunmesini engeller
+                //e.Handled = true;
+            }
         }
 
 

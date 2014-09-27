@@ -7,3 +7,12 @@ C:\Users\gokhan\Desktop\433Mhz_RF_project\433Mhz_RF\433Mhz_RF\obj\Debug\_433Mhz_
 C:\Users\gokhan\Desktop\433Mhz_RF_project\433Mhz_RF\433Mhz_RF\obj\Debug\433Mhz_RF.csproj.GenerateResource.Cache
 C:\Users\gokhan\Desktop\433Mhz_RF_project\433Mhz_RF\433Mhz_RF\obj\Debug\433Mhz_RF.exe
 C:\Users\gokhan\Desktop\433Mhz_RF_project\433Mhz_RF\433Mhz_RF\obj\Debug\433Mhz_RF.pdb
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\bin\Debug\433Mhz_RF.exe.config
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\obj\Debug\433Mhz_RF.exe
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\obj\Debug\433Mhz_RF.pdb
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\bin\Debug\433Mhz_RF.exe
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\bin\Debug\433Mhz_RF.pdb
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\obj\Debug\433Mhz_RF.csprojResolveAssemblyReference.cache
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\obj\Debug\_433Mhz_RF.Form1.resources
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\obj\Debug\_433Mhz_RF.Properties.Resources.resources
+C:\Users\gokhan\Documents\GitHub\433Mhz_RF_Test_CSharp\433Mhz_RF\obj\Debug\433Mhz_RF.csproj.GenerateResource.Cache
